@@ -1,4 +1,9 @@
 {
+  "name": "MyReads",
+  "license": "MIT",
+  "version": "0,1",
+  "author": "Charles Silva",
+  "email": "charles@futurovirtual.com",
   "dependencies": {
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
