@@ -4,6 +4,10 @@
   "version": "0.1.0",
   "author": "Charles Silva",
   "email": "charles@futurovirtual.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charcalcado/udacity-myreads"
+  },
   "dependencies": {
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
