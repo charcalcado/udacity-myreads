@@ -1,7 +1,7 @@
 {
   "name": "MyReads",
   "license": "MIT",
-  "version": "0,1",
+  "version": "0.1.0",
   "author": "Charles Silva",
   "email": "charles@futurovirtual.com",
   "dependencies": {

@@ -15,7 +15,7 @@ class App extends Component {
         this.onChangeShelf = this.onChangeShelf.bind(this);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         let bookLoad = window.localStorage.getItem('BookList') || '[]';
         if (bookLoad === '[]') {
             BooksAPI.getAll().then((books) => {

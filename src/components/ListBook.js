@@ -2,23 +2,17 @@ import React from  'react';
 import PropTypes from 'prop-types'
 
 import TitleApp from './TitleApp'
-import CurrentlyBooks from './CurrentlyBooks'
-import WantBooks from './WantBooks'
-import ReadBooks from './ReadBooks'
+import Shelf from "./Shelf";
 
 const ListBook = ({books, onChangeShelf }) => {
-
-    let booksCurrently = books.filter((book) => { return book.shelf === "currentlyReading"});
-    let readBooks = books.filter((book) => { return book.shelf === "read"});
-    let wantBooks = books.filter((book) => { return book.shelf === "wantToRead"});
 
     return (
         <div className="list-books">
             <TitleApp/>
             <div className="list-books-content">
-                <CurrentlyBooks books={booksCurrently} onChangeShelf={onChangeShelf}/>
-                <WantBooks books={wantBooks} onChangeShelf={onChangeShelf}/>
-                <ReadBooks books={readBooks} onChangeShelf={onChangeShelf}/>
+                <Shelf books={books.filter(b => b.shelf === "currentlyReading")} onChangeShelf={onChangeShelf} title="Currently Reading"/>
+                <Shelf books={books.filter(b => b.shelf === "wantToRead")} onChangeShelf={onChangeShelf} title="Want to Read"/>
+                <Shelf books={books.filter(b => b.shelf === "read")} onChangeShelf={onChangeShelf} title="Read"/>
             </div>
             <div className="open-search">
                 <a href="/search">Add a book</a>

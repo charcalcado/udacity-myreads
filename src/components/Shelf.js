@@ -1,12 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
-import Book from  './Book'
+import Book from './Book'
 
-const ReadBooks = ({books, onChangeShelf}) => {
+const Shelf = ({title, books, onChangeShelf}) => {
     return (
         <div className="bookshelf">
-            <h2 className="bookshelf-title">Read</h2>
+            <h2 className="bookshelf-title">{title}</h2>
             <div className="bookshelf-books">
                 <ol className="books-grid">
                     {books.map((book) => (
@@ -18,10 +18,10 @@ const ReadBooks = ({books, onChangeShelf}) => {
     )
 };
 
-ReadBooks.propTypes = {
+Shelf.propTypes = {
     books: PropTypes.array.isRequired,
-    onChangeShelf: PropTypes.func.isRequired
+    onChangeShelf: PropTypes.func.isRequired,
+    title: PropTypes.string.isRequired
 };
 
-
-export default ReadBooks;
+export default Shelf;

@@ -16,14 +16,30 @@ class SearchBook extends Component {
         this.updateQuery = this.updateQuery.bind(this);
     }
 
+    updateSearch(search) {
+        let newSearch = [];
+        search.forEach((item) => {
+            let foundShelf = false;
+            this.props.books.forEach((itemShelf) => {
+               if (item.id === itemShelf.id) {
+                   newSearch.push(itemShelf);
+                   foundShelf = true;
+               }
+            });
+            if (!foundShelf) {
+                item.shelf = "None";
+                newSearch.push(item);
+            }
+        });
+        return newSearch
+    }
+
     updateQuery = (query) => {
-        console.log("Query",query);
         if (query) {
-            console.log("Processando Consulta....");
-            BooksAPI.search(query, 20).then((books) => {
-                console.log("Passando no them", books);
-                if (Array.isArray(books)) {
-                    this.setState({booksFilter: books, query: query})
+            BooksAPI.search(query, 20).then((search) => {
+                if (Array.isArray(search)) {
+                    const newSearch = this.updateSearch(search);
+                    this.setState({booksFilter: newSearch, query: query})
                 } else {
                     this.setState({booksFilter: [], query: query})
                 }
@@ -35,7 +51,6 @@ class SearchBook extends Component {
 
     render() {
         const { history, onChangeShelf } = this.props;
-        console.log("BookFilterSize", this.state.booksFilter.length, this.state.query);
         return (
             <div className="search-books">
                 <div className="search-books-bar">
