@@ -27,7 +27,7 @@ class SearchBook extends Component {
                }
             });
             if (!foundShelf) {
-                item.shelf = "None";
+                item.shelf = "none";
                 newSearch.push(item);
             }
         });
